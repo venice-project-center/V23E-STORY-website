@@ -20,8 +20,6 @@ import {ImpactsSection} from "@/app/components/homepage/impacts/ImpactsSection";
 import {PublicationCard} from "@/app/components/homepage/publications/PublicationCard";
 
 export default function Home() {
-
-
     return (
         <div className = {"homePage flex flex-col"}>
             <HomePageLanding></HomePageLanding>

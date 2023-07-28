@@ -86,5 +86,11 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="d3nncem0031haf@ghoxobfdcoikvp" uuid="c879777d-503b-4d4f-9d31-0652077211f5">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>ghoxobfdcoikvp</user-name>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>
