@@ -50,5 +50,12 @@
       <jdbc-url>jdbc:mysql://aws.connect.psdb.cloud/venice_project_center?sslaccept=strict</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="d3nncem0031haf@ghoxobfdcoikvp" uuid="c879777d-503b-4d4f-9d31-0652077211f5">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ghoxobfdcoikvp:5432/eb40e56fd12c5df705060f41ea25fe72e567c0caf834a842ba091e91e9cb036@ec2-54-228-201-167.eu-west-1.compute.amazonaws.com:5432/d3nncem0031haf</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

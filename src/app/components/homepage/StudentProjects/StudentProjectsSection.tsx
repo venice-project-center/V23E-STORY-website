@@ -18,7 +18,9 @@ export function StudentProjectsSection() {
                         <h1 className={"text-4xl font-bold"}>
                             STUDENTS
                         </h1>
-                        <div className={"mt-7 h-0 w-48 border border-white"}></div>
+                        <div className={"grid place-items-center mx-2"}>
+                            <div className={"h-0 w-36 md:w-48 border border-white"}></div>
+                        </div>
                     </div>
                     <h1 className={"ml-20 text-4xl font-bold"}>
                         PROJECT

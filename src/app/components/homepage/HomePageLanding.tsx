@@ -20,15 +20,15 @@ export function HomePageLanding() {
                 </div>
                 <div className={"collapse md:invisible"}/>
                 <div className={"collapse md:invisible"}/>
-                <div className = {"basis-7/12 flex-col md:flex-row flex"}>
-                    <div className = {"my-5 sm:mr-20 text-4xl font-bold mr-20  basis-2/12"}>
+                <div className = {"flex-col md:flex-row flex"}>
+                    <div className = {"my-5 text-4xl font-bold mr-5  basis-2/12"}>
                         <div className={"grid grid-cols-2 lg:justify-items-center mb-2"}>
                             <div className={"col-span-2 flex-row flex"}>
                                 <h1 className={""}>
                                     OPEN
                                 </h1>
-                                <div className={"mx-2 grid"}>
-                                    <div className={"mt-7 h-0 w-48 border border-white"} ></div>
+                                <div className={"mx-2 place-items-center grid"}>
+                                    <div className={"h-0 w-48 border border-white"} ></div>
                                 </div>
                             </div>
                         </div>
