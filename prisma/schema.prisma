@@ -4,8 +4,9 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model Project {
@@ -27,14 +28,14 @@ model Dataurl {
   url       String
   text      String
   type      DATAURL_TYPE
-  Project   Project      @relation(fields: [projectId], references: [id])
+  Project   Project      @relation(fields: [projectId], references: [id], onDelete: Cascade)
 }
 
 model IqpTeam {
   id        Int         @id @unique @default(autoincrement())
   team      IqpEntity[]
   projectId String      @unique
-  project   Project     @relation(fields: [projectId], references: [id])
+  project   Project     @relation(fields: [projectId], references: [id], onDelete: Cascade)
 }
 
 model IqpEntity {
@@ -42,7 +43,7 @@ model IqpEntity {
   name   String
   teamId Int
   type   IPQ_ENTITY_TYPE
-  team   IqpTeam         @relation(fields: [teamId], references: [id])
+  team   IqpTeam         @relation(fields: [teamId], references: [id], onDelete: Cascade)
 }
 
 model validEmails {
@@ -71,28 +72,28 @@ model color {
   id          String        @unique @default(uuid())
   color       String
   SlideShowId Int
-  slideShow   AutoSlideshow @relation(fields: [SlideShowId], references: [id])
+  slideShow   AutoSlideshow @relation(fields: [SlideShowId], references: [id], onDelete: Cascade)
 }
 
 model caption {
   id          String        @unique @default(uuid())
   caption     String
   SlideShowId Int
-  slideShow   AutoSlideshow @relation(fields: [SlideShowId], references: [id])
+  slideShow   AutoSlideshow @relation(fields: [SlideShowId], references: [id], onDelete: Cascade)
 }
 
 model picture {
   id          String        @unique @default(uuid())
   url         String
   SlideShowId Int
-  slideShow   AutoSlideshow @relation(fields: [SlideShowId], references: [id])
+  slideShow   AutoSlideshow @relation(fields: [SlideShowId], references: [id], onDelete: Cascade)
 }
 
 model link {
   id          String        @unique @default(uuid())
   url         String
   SlideShowId Int
-  slideShow   AutoSlideshow @relation(fields: [SlideShowId], references: [id])
+  slideShow   AutoSlideshow @relation(fields: [SlideShowId], references: [id], onDelete: Cascade)
 }
 
 model tagsOnProject {
@@ -100,7 +101,7 @@ model tagsOnProject {
   name       String
   tag        Tag      @relation(fields: [name], references: [name], onDelete: Cascade)
   assignedAt DateTime @default(now())
-  Project    Project  @relation(fields: [projectId], references: [id])
+  Project    Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
 
   @@id([projectId, name])
 }
