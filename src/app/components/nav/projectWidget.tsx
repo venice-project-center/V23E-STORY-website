@@ -44,7 +44,7 @@ export function ProjectWidget({project}: ProjectLinkProps) {
     else if(project.year != 0 && projectTags == ""){ //sometimes we have no tags but there are year
         categoryTags = project.year.toString();
     }
-    else {  //and wouldn't you believe it but sometimes we've got no tags and no years! pathetic.
+    else if(categoryTags == "Categories: ") {  //and wouldn't you believe it but sometimes we've got no tags and no years! pathetic.
         categoryTags = ""
     }
     return(
