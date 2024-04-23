@@ -10,7 +10,9 @@ export async function CommitProject(project:FullProject):Promise<string> {
         },
         body:JSON.stringify(project)
     });
+    console.log(createResponse)
     let projectData:FullProject = await createResponse.json();
+    console.log(createResponse)
     console.log(projectData);
     return projectData.id
 }
