@@ -28,7 +28,7 @@ export function StudentProjectsSection() {
                 </div>
                 <div className={"studentProjectsDescription"}>
                     <p className={"flex shrink text-white my-5"}>
-                        Every year since 1988, WPI students have carried out relevant projects in order to solve issues and problems of the city of Venice with a scientific and technological approach. In 30 years of activity, the projects have covered a wide range of topics, from conservation of cultural heritage to in-depth analysis of the hydrogeological data of the lagoon. Many of these projects have inspired and started the creation of Venetian start-ups.
+                        Every year since 1988, WPI students have carried out relevant projects in order to solve issues and problems of the city of Venice with a scientific and technological approach. In almost 5 decades of activity, the projects have covered a wide range of topics, from conservation of cultural heritage to in-depth analysis of the hydrogeological data of the lagoon. Many of these projects have inspired and started the creation of Venetian start-ups.
                     </p>
                     <HomePageLink href={"/projects"}>
                         <h1 className={"text-base font-bold"}>See All</h1>

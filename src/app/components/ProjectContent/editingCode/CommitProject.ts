@@ -5,7 +5,10 @@ export async function CommitProject(project:FullProject):Promise<string> {
     console.log(project.dataurls)
     let createResponse = await fetch(window.location.origin+"/api/projects",{
         method:"POST",
-        body:JSON.stringify(project),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body:JSON.stringify(project)
     });
     let projectData:FullProject = await createResponse.json();
     console.log(projectData);
