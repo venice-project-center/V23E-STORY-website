@@ -9,6 +9,7 @@ import {SessionProvider} from "next-auth/react";
 import {session} from "next-auth/core/routes";
 import Provider from "@/app/components/auth/Provider";
 const inter = Inter({ subsets: ['latin'] })
+import Script from "next/script"
 
 export const metadata = {
   title: 'Venice Project center',
@@ -23,6 +24,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-PZ4R8W2TVG"></Script>
+      <Script id="GA">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-PZ4R8W2TVG');
+      `}
+      </Script>
           <main>
               <Provider>
                   <div className = {"pageLayout"}>
