@@ -1,6 +1,6 @@
 resource "aws_lambda_function" "writeFile" {
   function_name = "write_to_bucket"
-  runtime = "nodejs16.x"
+  runtime = "nodejs20.x"
   handler = "index.handler"
   role          = aws_iam_role.lambda_execution_role.arn
   filename = data.archive_file.writeFileZip.output_path
