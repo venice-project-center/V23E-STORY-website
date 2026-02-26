@@ -15,38 +15,16 @@ export function ProjectWidget({project}: ProjectLinkProps) {
         imgSrc = project.img
     }
 
-    let projectTags = "Categories: "
-    if(project.tags != null) {
-        for (let i = 0; i < project.tags.length; i++) {
-            if (i < project.tags.length - 1) {
-                projectTags += project.tags[i].name + ", "
-            } else {
-                projectTags += project.tags[i].name;
-            }
-        }
-    }
-    else{
-        projectTags = "";
-    }
-    /*if(project.categories != null) {
-            projectTags = "Categories: " + project.categories;
-    }*/
+    const categoryNames = (project.tags ?? [])
+        .map((tag) => tag.name?.trim())
+        .filter((name): name is string => !!name);
+    const categoriesText = categoryNames.length > 0 ? `Categories: ${categoryNames.join(", ")}` : "";
+    const hasYear = project.year != null && project.year !== 0;
+
     let reducedProjectDescription = project.description.split(".")[0];
-    //reducedProjectDescription.push("[more]");
-    // @ts-ignore
-    let categoryTags = ""; // If year is not entered, we will have a value of 0 instead, and it's not aesthetically pleasing, so we create the year | tags here
-    if (project.year != 0 && projectTags != ""){
-        categoryTags = project.year.toString() + " | " + projectTags;
-    }
-    else if(project.year == 0 && projectTags != ""){ //sometimes we have no year but there are tags
-        categoryTags = projectTags;
-    }
-    else if(project.year != 0 && projectTags == ""){ //sometimes we have no tags but there are year
-        categoryTags = project.year.toString();
-    }
-    else if(categoryTags == "Categories: ") {  //and wouldn't you believe it but sometimes we've got no tags and no years! pathetic.
-        categoryTags = ""
-    }
+    const categoryTags = [hasYear ? project.year.toString() : "", categoriesText]
+        .filter(Boolean)
+        .join(" | ");
     return(
         <Link className={"mx-2 my-4 md:m-4"} href={`${urlPathFromProject(project)}/${project.id}`}>
             <div className={"text-white flex flex-row"}>
@@ -60,11 +38,13 @@ export function ProjectWidget({project}: ProjectLinkProps) {
                                 </h1>
                             </div>
                             </div>
-                            <div style={{flexGrow: "6"}}>
-                                <h1 className={""} style={{textAlign: "right"}}>
-                                    {categoryTags}
-                                </h1>
-                            </div>
+                            {categoryTags && (
+                                <div style={{flexGrow: "6"}}>
+                                    <h1 className={""} style={{textAlign: "right"}}>
+                                        {categoryTags}
+                                    </h1>
+                                </div>
+                            )}
 
                         </div>
                         <h1 className={"basis-full shrink"} style={{textAlign: "justify"}}>
